@@ -8,9 +8,7 @@ class Product < ApplicationRecord
 
   def self.import_csv(csv_file, user_id, delete_old_entries = false)
     Product.transaction do
-      if delete_old_entries
-        Product.destroy_all
-      end
+      Product.destroy_all if delete_old_entries
       csv = CSV.parse(csv_file.read, headers: true, col_sep: '|')
       csv.each do |row|
         data = {user_id: user_id}

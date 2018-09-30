@@ -20,6 +20,23 @@ class Products extends React.Component {
       .catch(error => console.log(error))
   }
 
+  deleteProduct (productId) {
+    if (confirm('Really delete this product?')) {
+      axios.delete('/api/v1/products/' + productId, {
+        headers: {
+          'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').content
+        }
+      })
+        .then(() => {
+          let products = this.state.products.filter(product => {
+            return product.id !== productId
+          });
+          this.setState({ products: products });
+        })
+        .catch(error => console.log(error))
+    }
+  }
+
   render () {
     return (
       <div>
@@ -37,10 +54,12 @@ class Products extends React.Component {
             {this.state.products.map((product, index) => {
               return (<ProductField
                 key={product.id}
+                productId={product.id}
                 partNumber={product.part_number}
                 branchId={product.branch_id}
                 partPrice={product.part_price}
                 shortDesc={product.short_desc}
+                deleteCall={this.deleteProduct.bind(this)}
               />)
             })}
           </tbody>

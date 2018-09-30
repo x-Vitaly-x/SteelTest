@@ -10,11 +10,11 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   # tests if application starts if user is signed in
-  test "should get index if user online" do
+  test "should be redirected to products if online" do
     @user = users(:sample_user_1)
     sign_in @user
 
     get root_path
-    assert_response :success
+    assert_response :found
   end
 end
