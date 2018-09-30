@@ -24,18 +24,14 @@
   </div>
 </nav>
 
-<div class="col-12 row application">
-  <div class="mt-4 col-10">
-    <div class="container">
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-      <%= yield %>
-    </div>
-  </div>
+<div class="container mt-4">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <%= yield %>
 </div>
 
 </body>

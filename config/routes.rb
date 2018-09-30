@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   #
   root to: 'home#index'
 
+  resources :products
   namespace :api do
     namespace :v1 do
+      namespace :products do
+        resources :csv_uploads
+      end
       resources :products
     end
   end

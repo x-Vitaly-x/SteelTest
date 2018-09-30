@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  part_number: MyString
+  branch_id: MyString
+  part_price: 9.99
+  short_desc: MyString
+
+two:
+  part_number: MyString
+  branch_id: MyString
+  part_price: 9.99
+  short_desc: MyString

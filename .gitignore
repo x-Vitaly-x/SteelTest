@@ -4,6 +4,7 @@ capybara-*.html
 /log
 .idea
 .idea/
+public/packs/
 /.idea
 /.idea/*/*
 /tmp
