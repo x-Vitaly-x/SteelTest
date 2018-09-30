@@ -84,4 +84,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.middleware.insert_before(ActionDispatch::Static, Rack::Auth::Basic, "Staging") do |u, p|
+    [u, p] == ['steel_test', 'steel_test']
+  end
 end
