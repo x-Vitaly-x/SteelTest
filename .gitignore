@@ -5,6 +5,7 @@ capybara-*.html
 .idea
 .idea/
 public/packs/
+public/assets/
 /.idea
 /.idea/*/*
 /tmp
